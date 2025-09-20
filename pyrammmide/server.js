@@ -1,6 +1,3 @@
-const { NowRequest, NowResponse } = require('@vercel/node');
-
-module.exports = (req = new NowRequest(), res = new NowResponse()) => {
 const express = require("express");
 const app = express();
 let goldEarnings = 0
@@ -307,4 +304,3 @@ count_us_g_s = 0
 res.json({ ser_give });
 })
 app.listen(3000);
-}
