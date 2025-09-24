@@ -99,7 +99,7 @@ button {
     left: 25%;
     right:0%;
     font-family: Impact, fantasy;
-    font-size: 100%;
+    font-size: 150%;
 }
 .back_button{
     position: absolute;
@@ -422,7 +422,7 @@ function log() {
                     closePopup(true);
                 };
                 const bal = document.getElementById("bal")
-                bal.style.fontsize = "100%";
+                bal.style.fontsize = "150%";
                 bal.style.left = "35%"
                 openPopup(true);
                 return
@@ -456,7 +456,7 @@ function get(bool) {
                 sendb.style.display = "block"
                 let account = JSON.parse(localStorage.getItem("WALLET"))
                 const bal = document.getElementById("bal")
-                bal.style.fontsize = "100%";
+                bal.style.fontsize = "150%";
                 bal.style.left = "35%"
                 document.getElementById('back_button').onclick = function() {
                     closePopup(true);
@@ -1754,6 +1754,7 @@ main();
   </script>
 
 </html>
+
 
 
 
