@@ -99,7 +99,7 @@ button {
     left: 25%;
     right:0%;
     font-family: Impact, fantasy;
-    font-size: 500%;
+    font-size: 100%;
 }
 .back_button{
     position: absolute;
@@ -422,7 +422,7 @@ function log() {
                     closePopup(true);
                 };
                 const bal = document.getElementById("bal")
-                bal.style.fontsize = "200%";
+                bal.style.fontsize = "100%";
                 bal.style.left = "35%"
                 openPopup(true);
                 return
@@ -456,7 +456,7 @@ function get(bool) {
                 sendb.style.display = "block"
                 let account = JSON.parse(localStorage.getItem("WALLET"))
                 const bal = document.getElementById("bal")
-                bal.style.fontsize = "200%";
+                bal.style.fontsize = "100%";
                 bal.style.left = "35%"
                 document.getElementById('back_button').onclick = function() {
                     closePopup(true);
@@ -533,7 +533,7 @@ let id = -1
                 if(!localStorage.getItem("TESTBAL")){
                     localStorage.setItem("TESTBAL", JSON.stringify(0))
                 }else{
-                document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} SPH`
+                document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
                 if(!document.querySelector(".faucet")){
                     let but = document.createElement('button')
                     const container = document.getElementById('popup2')
@@ -543,7 +543,7 @@ let id = -1
                     let balance = JSON.parse(localStorage.getItem("TESTBAL"))
                     balance += 1
                     localStorage.setItem("TESTBAL", JSON.stringify(balance))
-                    document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} SPH`
+                    document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
                 };
                     container.appendChild(but)
                      console.log("work1")
@@ -1754,6 +1754,7 @@ main();
   </script>
 
 </html>
+
 
 
 
