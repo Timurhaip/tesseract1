@@ -335,6 +335,7 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   </body>
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 <script>
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
@@ -1765,6 +1766,7 @@ main();
   </script>
 
 </html>
+
 
 
 
