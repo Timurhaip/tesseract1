@@ -543,6 +543,7 @@ let id = -1
                     localStorage.setItem("TESTBAL", JSON.stringify(0))
                 }else{
                 document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+                document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
                 if(!document.querySelector(".faucet")){
                     let but = document.createElement('button')
                     const container = document.getElementById('popup2')
@@ -553,6 +554,7 @@ let id = -1
                     balance += 1
                     localStorage.setItem("TESTBAL", JSON.stringify(balance))
                     document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+                    document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
                 };
                     container.appendChild(but)
                      console.log("work1")
@@ -1763,6 +1765,7 @@ main();
   </script>
 
 </html>
+
 
 
 
