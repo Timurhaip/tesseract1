@@ -124,14 +124,14 @@ button {
     top: 20%;
     left: 5%;
     height: 10%;
-    width: 15%;
+    width: 17%;
     border-radius: 100%; /* Радиус скругления */
      border: none
 
 }
 .getimg {
-    height: 50%;
-    width: 50%;
+    height: 60%;
+    width: 60%;
 }
 .copybutton {
     position: absolute;
@@ -151,14 +151,14 @@ button {
     top: 20%;
     left: 25%;
     height: 10%;
-    width: 15%;
+    width: 17%;
     border-radius: 100%; /* Радиус скругления */
      border: none
 
 }
 .sendimg {
-    height: 50%;
-    width: 50%;
+    height: 60%;
+    width: 60%;
 }
 .address {
     position: absolute;
@@ -198,8 +198,8 @@ button {
     }
 .testtext {
     position: absolute;
-    top: 0%;
-    left: 60%;
+    top: -5%;
+    left: 53%;
     font-family: Impact, fantasy;
     font-size: 100%;
     font-weight: bold;
@@ -279,7 +279,7 @@ button {
 .tutorial{
     position: absolute;
     left: -15%;
-    top: 5%;
+    top: 1%;
     width: 150%;
     height: 100%;
 }
@@ -1045,15 +1045,24 @@ if (leagu == "S"){
                 })             }
 if(leagu == "GS"){
 if(required_num > variable){
+    const response1 = await fetch('/update_time');
+    const data1 = await response1.json();
+    await updateTimer()
     return required_delay(required_num, leagu)
 }else{
+    const response1 = await fetch('/update_time');
+    const data1 = await response1.json();
     return
 }
 }else{
 if(required_num != variable){
-    console.log(required_num, variable)
+    const response1 = await fetch('/update_time');
+    const data1 = await response1.json();
+    await updateTimer()
     return required_delay(required_num, leagu)
 }else{
+const response1 = await fetch('/update_time');
+const data1 = await response1.json();
 return
 }
 } }
