@@ -63,7 +63,7 @@ button {
   width: 50%;
   height: 50%;
   background-color: blueviolet;
-  z-index: 9999;
+  z-index: 9998;
   border-radius: 10%;
 }
 .popup3 {
@@ -250,10 +250,10 @@ button {
 }
 .inf {
    position: absolute;
-    top: -5%;
-    left: 73%;
-    width: 32%;
-    height: 18%;  
+    top: -2%;
+    left: 17%;
+    width: 13%;
+    height: 10%;  
     background-color: transparent;
     border-color: transparent;
     border-radius: 100%;
@@ -286,7 +286,7 @@ button {
 .textinvst{
     position: absolute;
     top: -40%;
-    left: 27%;
+    left: 24%;
     font-size: 120%;
     font-weight: bold;
 }
@@ -318,12 +318,22 @@ font-weight: bold;
     top: -25%;
     font-weight: bold;
 }
+.tes_coin{
+position: absolute;
+top: 80%;
+left: 43%;
+    display: none;
+    width:20%;
+    height:10%;
+    z-index: 9999;
+    transition: transform 3s ease;
+}
     </style>
   <body>
     <img class="tes" src="Tesseract.gif" alt="Tesseract gif">
+    <img id="box" class="tes_coin" src="tsccoin.png" alt="coin">
     <button id="wallet" type="button" onclick="log()" class="wallet"><img class="walletimg" src="wallet4.png" alt="WALLET">
     <p class="bal_vis" id="bal1">undefined TSC</p></button>
-    <button onclick="openPopup2()" class="inf" id="inf"><img src="info-Photoroom.png" alt="information" class="infimg"></button>
     <button id="btnn" type="button" style="font-family:Impact, fantasy;" onclick="openPopup(false)" class="btnn"><p class="textinvst">INVEST</p></button>
     <div class="popup3">
         <img src="infomap.png" alt="tutorial" class="tutorial">
@@ -347,7 +357,8 @@ font-weight: bold;
             <button onclick="get(true)" class="getbutton" id="getbutton"><img src="get.png" alt="get" class="getimg"></button>
             <button onclick="send(true)" class="sendbutton" id="sendbutton"><img src="send.png" alt="send" class="sendimg"></button>
             <button onclick="closePopup(true)" class="back_button" id="back_button"><img src="crest1-Photoroom.png" alt="back" class="backimg"></button>
-            </div>
+           <button onclick="openPopup2()" class="inf" id="inf"><img src="inf-Photoroom.png" alt="information" class="infimg"></button>
+        </div>
             
   </body>
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
@@ -782,8 +793,18 @@ async function start() {
                     })
                     have_already_invest = true
                 localStorage.setItem("invest", JSON.stringify(true))
-            }
-}
+                }
+                var box = document.getElementById('box');
+box.style.display = "block";
+setTimeout(() => {
+  box.style.transform = "translateY(-450%)";
+  closePopup(false)
+}, 20);
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+await delay(3000)
+box.style.transform = "translateY(450%)"
+box.style.display = "none" 
+                 }
 async function serSend() {
     if(league != "S"){
          document.getElementById("status_bar").innerText = `Now S league is investing. Your league - ${league}`
@@ -826,6 +847,16 @@ async function serSend() {
                     .catch(error => {
                         console.error('Fatal error. We are deleting your PC', error);
                     });
+var box = document.getElementById('box');
+box.style.display = "block";
+setTimeout(() => {
+  box.style.transform = "translateY(-450%)";
+  closePopup(false)
+}, 20);
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+await delay(3000)
+box.style.transform = "translateY(450%)"
+box.style.display = "none" 
 }
 async function serGive(goldEarnings, nalog) {
     if(league != "S"){
@@ -879,6 +910,16 @@ document.getElementById("number").value = 0
 document.getElementById("status_bar").innerText = "Sent successfully"
 await delay(2000)
 document.getElementById("status_bar").innerText = "Time S league send money to G league"
+var box = document.getElementById('box');
+box.style.display = "block";
+setTimeout(() => {
+  box.style.transform = "translateY(-450%)";
+  closePopup(false)
+}, 20);
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+await delay(3000)
+box.style.transform = "translateY(450%)"
+box.style.display = "none" 
 }
 async function bronSend() {
     if(league != "B"){
@@ -922,6 +963,16 @@ if(!have_already_invest){
                 .then(responsedata => {
   
                     }) }
+var box = document.getElementById('box');
+box.style.display = "block";
+setTimeout(() => {
+  box.style.transform = "translateY(-450%)";
+  closePopup(false)
+}, 20);
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+await delay(3000)
+box.style.transform = "translateY(450%)"
+box.style.display = "none" 
 }
 async function bronGive(silverEarnings, nalog) {
 if(league != "B"){
@@ -973,6 +1024,16 @@ document.getElementById("number").value = 0
 document.getElementById("status_bar").innerText = "Sent successfully"
 await delay(2000)
 document.getElementById("status_bar").innerText = "Time B league send money to S league"
+var box = document.getElementById('box');
+box.style.display = "block";
+setTimeout(() => {
+  box.style.transform = "translateY(-450%)";
+  closePopup(false)
+}, 20);
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+await delay(3000)
+box.style.transform = "translateY(450%)"
+box.style.display = "none" 
 }
 async function goldGive(bronEarnings, nalog) {
 if(league != "G"){
@@ -1016,6 +1077,16 @@ localStorage.setItem("gold_dolg", JSON.stringify(gold_dolg))
 console.log(goldGive)
 await delay(2000)
 document.getElementById("status_bar").innerText = "Time G league send money to B league"
+var box = document.getElementById('box');
+box.style.display = "block";
+setTimeout(() => {
+  box.style.transform = "translateY(-450%)";
+  closePopup(false)
+}, 20);
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+await delay(3000)
+box.style.transform = "translateY(450%)"
+box.style.display = "none" 
 }
 async function required_delay(required_num, leagu){
  let variable;
@@ -1819,7 +1890,6 @@ main();
   </script>
 
 </html>
-
 
 
 
