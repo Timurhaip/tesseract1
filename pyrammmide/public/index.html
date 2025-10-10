@@ -329,6 +329,15 @@ left: 43%;
     z-index: 9999;
     transition: transform 3s ease;
 }
+.yourleague{
+    position: absolute;
+    top:-5%;
+    left: 5%;
+    font-size: 120%;
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+
+}
     </style>
   <body>
     <img class="tes" src="Tesseract.gif" alt="Tesseract gif">
@@ -343,6 +352,7 @@ left: 43%;
         <p class="inftext2">league debt - each cycle at the end of the G league ends up in the minus, after redistribution by leagues the sum of the debt of all users in one league is the league debt; tax distribution - 50% of the tax goes to the user's income, and the other 50% to the creators</p>
         </div>
     <div class="popup">
+        <p class="yourleague" id="your">Loading</p>
         <p id="status_bar" class="status_bar">Loading</p>
         <p id="status_bar2" class="status_bar2">Loading</p>
         <input type="number" id="number" class="number" style="font-size: 100%; font-family:Impact, fantasy; border: 1px solid #ccc; border-radius: 10px; padding: 8px; width: 100px; box-sizing: border-box;" placeholder="0">
@@ -672,22 +682,24 @@ localStorage.setItem("CALC", true)
                 .then(response => response.json())
                 .then(data => {
                             })
+        document.getElementById("your").innerText = `Your league ${league}`
       } else if(localStorage.getItem("ID").slice(-1) == "S"){
          league = "S"
          await fetch('/add_userss')
                 .then(response => response.json())
                 .then(data => {
                             })
+        document.getElementById("your").innerText = `Your league ${league}`
       }else{
          league = "B"
          await fetch('/add_usersb')
                 .then(response => response.json())
                 .then(data => {
                             })
+        document.getElementById("your").innerText = `Your league ${league}`
       }  
       localStorage.setItem("CALC", false)
     }
-      //  ДОРАБОТАТЬ GET_INF() ПРИДУМАТЬ КУДА ДОБАВИТЬ КНОПКУ ИНФОРМАЦИИ 
          </script>
   <script>
     let userss = 0
@@ -1891,7 +1903,6 @@ main();
   </script>
 
 </html>
-
 
 
 
