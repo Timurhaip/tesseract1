@@ -110,15 +110,15 @@ button {
     width: 11%;
     height:7%;
     border: 100%;
-    border-radius: 20%;
+    border-radius: 40%;
     background-color: transparent;
 }
 .backimg{
     position: absolute;
-    left: -25%;
+    left: 0%;
     top: 0%;
     height: 100%;
-    width:125%;
+    width:100%;
 }
 .getbutton{
     position: absolute;
@@ -190,7 +190,7 @@ button {
         }
 .faucet {
          position: absolute;
-    top: 20%;
+    top: 15%;
     left: 40%;
     height: 10%;
     width: 20%;
@@ -213,7 +213,7 @@ button {
     width: 11%;
     height:7%;
     border: 100%;
-    border-radius: 20%;
+    border-radius: 40%;
     background-color: transparent;
 
 }
@@ -272,8 +272,8 @@ button {
     top:0%;
     width: 11%;
     height:7%;
-    border: 100px;
-    border-radius: 20%;
+    border: 100%;
+    border-radius: 30%;
     background-color: transparent;
 
 }
@@ -340,6 +340,14 @@ left: 43%;
     font-weight: bold;
 
 }
+.sended{
+    position: absolute;
+    top: 85%;
+    left: 42%;
+    font-family: Impact, fantasy;
+    font-size: 125%;
+    font-weight: bold;
+}
     </style>
   <body>
     <img class="tes" src="Tesseract.gif" alt="Tesseract gif">
@@ -354,14 +362,15 @@ left: 43%;
         <p class="inftext2">league debt - each cycle at the end of the G league ends up in the minus, after redistribution by leagues the sum of the debt of all users in one league is the league debt; tax distribution - 50% of the tax goes to the user's income, and the other 50% to the creators</p>
         </div>
     <div class="popup">
-        <p class="yourleague" id="your">Loading</p>
-        <p id="status_bar" class="status_bar">Loading</p>
-        <p id="status_bar2" class="status_bar2">Loading</p>
+        <p class="yourleague" id="your">Loading...</p>
+        <p id="status_bar" class="status_bar">Loading...</p>
+        <p id="status_bar2" class="status_bar2">Loading...</p>
         <input type="number" id="number" class="number" style="font-size: 100%; font-family:Impact, fantasy; border: 1px solid #ccc; border-radius: 10px; padding: 8px; width: 100px; box-sizing: border-box;" placeholder="0">
         <button onclick="start()" class="investleague" id="investleague" style="font-family:Impact, fantasy; position:absolute;;">PAY</button>
-        <div id="timer" class="timer">Loading</div>
+        <div id="timer" class="timer">Loading...</div>
         <button onclick="closePopup(false)" class="back_button1" id="back_button1"><img src="delete_13906047-Photoroom.png" alt="back" class="backimg"></button>
-        </div>
+        <p class="sended" id="sended">Loading...</p>
+    </div>
         <div class="popup2" id="popup2">
             <p class="testtext">:Test Mode</p>
             <button class="toggle-button" id="toggleButton">OFF</button>
@@ -819,6 +828,7 @@ document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("
 await delay(3000)
 box.style.transform = "translateY(450%)"
 box.style.display = "none" 
+document.getElementById("sended").innerText = `Sended: ${gold_Giv}`
                  }
 async function serSend() {
     if(league != "S"){
@@ -872,6 +882,7 @@ document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("
 await delay(3000)
 box.style.transform = "translateY(450%)"
 box.style.display = "none" 
+document.getElementById("sended").innerText = `Sended: ${serSend}`
 }
 async function serGive(goldEarnings, nalog) {
     if(league != "S"){
@@ -935,6 +946,7 @@ document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("
 await delay(3000)
 box.style.transform = "translateY(450%)"
 box.style.display = "none" 
+document.getElementById("sended").innerText = `Sended: ${serGive}`
 }
 async function bronSend() {
     if(league != "B"){
@@ -988,6 +1000,7 @@ document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("
 await delay(3000)
 box.style.transform = "translateY(450%)"
 box.style.display = "none" 
+document.getElementById("sended").innerText = `Sended: ${bronSend}`
 }
 async function bronGive(silverEarnings, nalog) {
 if(league != "B"){
@@ -1049,6 +1062,7 @@ document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("
 await delay(3000)
 box.style.transform = "translateY(450%)"
 box.style.display = "none" 
+document.getElementById("sended").innerText = `Sended: ${bronGive}`
 }
 async function goldGive(bronEarnings, nalog) {
 if(league != "G"){
@@ -1102,6 +1116,7 @@ document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("
 await delay(3000)
 box.style.transform = "translateY(450%)"
 box.style.display = "none" 
+document.getElementById("sended").innerText = `Sended: ${goldGive}`
 }
 async function required_delay(required_num, leagu){
  let variable;
@@ -1632,6 +1647,7 @@ async function main() {
     const response1 = await fetch('/get_semi_period');
     const data1 = await response1.json();
     let semi_period = data1.semi_period
+    document.getElementById("sended").innerText = `Sended: ${0}`
 if(period == "g2" || period == "none"){
    await fetch('/change_period', {
                             method: 'POST',
