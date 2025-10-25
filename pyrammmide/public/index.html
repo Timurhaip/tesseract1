@@ -190,7 +190,7 @@ button {
         }
 .faucet {
          position: absolute;
-    top: 15%;
+    top: 25%;
     left: 40%;
     height: 10%;
     width: 20%;
@@ -348,12 +348,27 @@ left: 43%;
     font-size: 125%;
     font-weight: bold;
 }
+.bal_mon{
+    position: absolute;
+    width: 5%;
+    height: 3%;
+    top: 0.5%;
+    left: 13%;
+}
+.ton {
+    position: absolute;
+    width: 20%;
+    height: 10%;
+    left:44%;
+    top: 12%;
+}
     </style>
   <body>
     <img class="tes" src="Tesseract.gif" alt="Tesseract gif">
     <img id="box" class="tes_coin" src="tsccoin.png" alt="coin">
     <button id="wallet" type="button" onclick="log()" class="wallet"><img class="walletimg" src="wallet4.png" alt="WALLET">
-    <p class="bal_vis" id="bal1">undefined TSC</p></button>
+    <p class="bal_vis" id="bal1">undefined</p></button>
+    <img class="bal_mon" src="tsccoin.png">
     <button id="btnn" type="button" style="font-family:Impact, fantasy;" onclick="openPopup(false)" class="btnn"><p class="textinvst">INVEST</p></button>
     <div class="popup3">
         <img src="infomap.png" alt="tutorial" class="tutorial">
@@ -375,6 +390,7 @@ left: 43%;
             <p class="testtext">:Test Mode</p>
             <button class="toggle-button" id="toggleButton">OFF</button>
             <p id="bal" class="bal" >NONE</p>
+            <img class="ton" src="ton_img.png">
 <button onclick="copyText()" id="copy" class="copybutton"><img src="copy-Photoroom.png" alt="Copy" class="copyimg"></button>
             <button onclick="get(true)" class="getbutton" id="getbutton"><img src="get.png" alt="get" class="getimg"></button>
             <button onclick="send(true)" class="sendbutton" id="sendbutton"><img src="send.png" alt="send" class="sendimg"></button>
@@ -385,7 +401,7 @@ left: 43%;
   </body>
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 <script>
-document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))}`
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
@@ -443,7 +459,7 @@ document.addEventListener('click', function (e) {
       console.log(account)
       web3.eth.getBalance(account[0].address)
       .then(balance => {
-        document.getElementById("bal").innerHTML = `${balance} ETH`
+        document.getElementById("bal").innerHTML = `${balance}`
         const button = document.getElementById('toggleButton');
         button.display = "block"
       });
@@ -550,7 +566,7 @@ function get(bool) {
                 };
         web3.eth.getBalance(account[0].address)
         .then(balance => {
-            document.getElementById("bal").innerHTML = `${balance} ETH`
+            document.getElementById("bal").innerHTML = `${balance}`
       })
       let elem =  document.getElementById("copy")
      elem.style.display = "none"
@@ -621,7 +637,7 @@ let id = -1
                     localStorage.setItem("TESTBAL", JSON.stringify(0))
                 }else{
                 document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
-                document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+                document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))}`
                 if(!document.querySelector(".faucet")){
                     let but = document.createElement('button')
                     const container = document.getElementById('popup2')
@@ -632,7 +648,7 @@ let id = -1
                     balance += 1
                     localStorage.setItem("TESTBAL", JSON.stringify(balance))
                     document.getElementById("bal").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
-                    document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))} TSC`
+                    document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))}`
                 };
                     container.appendChild(but)
                      console.log("work1")
@@ -647,7 +663,7 @@ let id = -1
       let account = JSON.parse(localStorage.getItem("WALLET"))
       web3.eth.getBalance(account[0].address)
       .then(balance => {
-        document.getElementById("bal").innerHTML = `${balance} ETH`
+        document.getElementById("bal").innerHTML = `${balance}`
         const button = document.getElementById('toggleButton');
         button.display = "block"
       });
