@@ -352,8 +352,8 @@ left: 43%;
     position: absolute;
     width: 5%;
     height: 3%;
-    top: 0.5%;
-    left: 13%;
+    top: 0.7%;
+    left: 17%;
 }
 .ton {
     position: absolute;
@@ -632,6 +632,7 @@ let id = -1
                 let getb =  document.getElementById("getbutton")
                 getb.style.display = "none"
                 let sendb =  document.getElementById("sendbutton")
+                document.getElementsByClassName("ton").display = "none"
                 sendb.style.display = "none"
                 if(!localStorage.getItem("TESTBAL")){
                     localStorage.setItem("TESTBAL", JSON.stringify(0))
@@ -658,6 +659,7 @@ let id = -1
                 }
                 }
             }else{
+     document.getElementsByClassName("ton").display = "block"
       let faucet = document.querySelector(".faucet")
       faucet.style.display = "none"
       let account = JSON.parse(localStorage.getItem("WALLET"))
