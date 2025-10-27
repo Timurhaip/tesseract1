@@ -352,7 +352,7 @@ left: 43%;
     position: absolute;
     width: 5%;
     height: 3%;
-    top: 0.7%;
+    top: 1%;
     left: 17%;
 }
 .ton {
@@ -360,7 +360,7 @@ left: 43%;
     width: 30%;
     height: 15%;
     left:40%;
-    top: 9%;
+    top: 8%;
 }
     </style>
   <body>
@@ -401,6 +401,8 @@ left: 43%;
   </body>
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 <script>
+let isActive = false;
+const web3 = new Web3('https://mainnet.infura.io/v3/6f6b79491b0b4cdd990d2368c20d7d52');
 document.getElementById("bal1").innerHTML = `${JSON.parse(localStorage.getItem("TESTBAL"))}`
 function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
@@ -432,7 +434,19 @@ function closePopup(wallet) {
     }else{
         var popup = document.querySelector('.popup2');
       popup.style.display = 'none'
-      }
+      if(isActive){
+      isActive = false
+      document.getElementById("ton").style.display = "block"
+      let faucet = document.querySelector(".faucet")
+      faucet.style.display = "none"
+      let account = JSON.parse(localStorage.getItem("WALLET"))
+      web3.eth.getBalance(account[0].address)
+      .then(balance => {
+        document.getElementById("bal").innerHTML = `${balance}`
+        const button = document.getElementById('toggleButton');
+        button.display = "block"
+      })}
+    }
     
     }
 function openPopup(wallet) {
@@ -507,7 +521,6 @@ document.addEventListener('click', function (e) {
 closePopup2()
 closePopup(true)
         //localStorage.setItem("LOGIN", JSON.stringify(false))
-const web3 = new Web3('https://mainnet.infura.io/v3/6f6b79491b0b4cdd990d2368c20d7d52');
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -622,9 +635,8 @@ function send(bool){
     //ПОТОМ ДОДЕЛАТЬ ФУНКЦИЮ send() И РЕАЛИЗОВАТЬ ВЫВОД ЭФИРОВ
     }
 const button = document.getElementById('toggleButton');
-let isActive = false;
 let id = -1    
-    button.addEventListener('click', () => {
+button.addEventListener('click', () => {
             isActive = !isActive; // Меняем состояние
             button.classList.toggle('active', isActive); // Изменяем класс для стиля
             button.textContent = isActive ? 'ON' : 'OFF'; // Обновляем текст кнопки
