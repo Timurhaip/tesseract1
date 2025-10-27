@@ -316,9 +316,9 @@ font-weight: bold;
     position: absolute;
     left: 25%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 100%;
+    font-size: 120%;
     z-index: 9999;
-    top: -25%;
+    top: -30%;
     font-weight: bold;
 }
 .tes_coin{
@@ -357,10 +357,10 @@ left: 43%;
 }
 .ton {
     position: absolute;
-    width: 20%;
-    height: 10%;
-    left:44%;
-    top: 14%;
+    width: 30%;
+    height: 15%;
+    left:40%;
+    top: 9%;
 }
     </style>
   <body>
@@ -390,7 +390,7 @@ left: 43%;
             <p class="testtext">:Test Mode</p>
             <button class="toggle-button" id="toggleButton">OFF</button>
             <p id="bal" class="bal" >NONE</p>
-            <img class="ton" src="ton_img.png">
+            <img class="ton" id="ton" src="ton-no-bg-preview (carve.photos).png">
 <button onclick="copyText()" id="copy" class="copybutton"><img src="copy-Photoroom.png" alt="Copy" class="copyimg"></button>
             <button onclick="get(true)" class="getbutton" id="getbutton"><img src="get.png" alt="get" class="getimg"></button>
             <button onclick="send(true)" class="sendbutton" id="sendbutton"><img src="send.png" alt="send" class="sendimg"></button>
@@ -632,7 +632,7 @@ let id = -1
                 let getb =  document.getElementById("getbutton")
                 getb.style.display = "none"
                 let sendb =  document.getElementById("sendbutton")
-                document.getElementsByClassName("ton").display = "none"
+                document.getElementById("ton").style.display = "none"
                 sendb.style.display = "none"
                 if(!localStorage.getItem("TESTBAL")){
                     localStorage.setItem("TESTBAL", JSON.stringify(0))
@@ -659,7 +659,7 @@ let id = -1
                 }
                 }
             }else{
-     document.getElementsByClassName("ton").display = "block"
+     document.getElementById("ton").style.display = "block"
       let faucet = document.querySelector(".faucet")
       faucet.style.display = "none"
       let account = JSON.parse(localStorage.getItem("WALLET"))
@@ -1939,8 +1939,6 @@ main();
   </script>
 
 </html>
-
-
 
 
 
